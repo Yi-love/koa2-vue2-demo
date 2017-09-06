@@ -1,7 +1,7 @@
 {
   "name": "koa2-vue2-demo",
   "version": "1.0.0",
-  "description": "use vue2 demo",
+  "description": "build with vue2 demo",
   "main": "server/index.js",
   "scripts": {
     "dev": "node server/index.js",

@@ -1,5 +1,5 @@
 # Koa2-vue2-demo
-This is a demo about how to use vue2.
+This is a demo about how to build with vue2.
 
 
 ## build
@@ -16,4 +16,4 @@ cmd:
 npm run dev
 ```
 
-open browser: <127.0.0.1:4000>
+open browser: [127.0.0.1:4000](127.0.0.1:4000)
