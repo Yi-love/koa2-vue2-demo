@@ -20,7 +20,7 @@ function generateLoaders (loader, loaderOptions , development) {
     loaders.push({
       loader: loader + '-loader',
       options: Object.assign({}, loaderOptions, {
-      sourceMap: development ? true : false
+        sourceMap: development ? true : false
       })
     });
   }
@@ -53,22 +53,19 @@ module.exports = function(development){
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
           enforce: 'pre',
-          include: path.join(__dirname, './client'),
+          include: [path.join(__dirname, './client')],
           options: {
             formatter: require('eslint-friendly-formatter')
           }
         },
         {
           test:/\.js$/,
-          include:path.join(__dirname, './client'),
-          loader:'babel-loader',
-          options:{
-            presets:['latest']
-          }
+          exclude: /node_modules/,
+          loader:'babel-loader'
         },
         {
           test:/\.vue$/,
-          include:path.join(__dirname, './client'),
+          include: [path.join(__dirname, './client')],
           loader:'vue-loader',
           options: {
             loaders: {
@@ -89,7 +86,7 @@ module.exports = function(development){
       path:path.resolve(__dirname , 'static/dist'),
       publicPath:'/dist/'
     },
-    devtool: 'source-map',
+    devtool: '#source-map',
     plugins:[
       new webpack.optimize.CommonsChunkPlugin({
         name: 'vendor'
@@ -101,7 +98,7 @@ module.exports = function(development){
       new ExtractTextPlugin({
         filename:'[name]' + (development ? '' : '-[contenthash]') + '.css'
       }),
-      development ? ()=>{} :
+      development ? ()=> {} : 
       new webpack.optimize.UglifyJsPlugin({
         compress: {
           warnings: false,

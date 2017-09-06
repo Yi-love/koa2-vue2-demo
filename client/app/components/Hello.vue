@@ -11,9 +11,9 @@
     data (){
       return {
         msg : 'see you....'
-      }
+      };
     }
-  }
+  };
 </script>
 
 <style>

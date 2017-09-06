@@ -1,10 +1,16 @@
-// http://eslint.org/docs/user-guide/configuring
-
 module.exports = {
   root: true,
   parser: 'babel-eslint',
+  env:{
+    'es6':true,
+    'browser':true,
+  },
   parserOptions: {
-    sourceType: 'module'
+    ecmaVersion: 2017,
+    sourceType: 'module',
+    ecmaFeatures: {
+        experimentalObjectRestSpread: true,
+    },
   },
   env: {
     browser: true,
@@ -13,9 +19,8 @@ module.exports = {
   plugins: [
     'html'
   ],
-  // add your custom rules here
-  'rules': {
-    // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
+  rules:{
+      "semi": ["error", "always"],
+      "no-console": 0
   }
 }
