@@ -3,6 +3,9 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Hello from '../components/Hello';
+import A from '../components/A';
+import Button from '../components/Button';
+import Input from '../components/Input';
 
 Vue.use(Router);
 
@@ -12,6 +15,21 @@ export default new Router({
       path: '/',
       name: 'Hello',
       component: Hello
+    },
+    {
+      path:'/a',
+      name:'A',
+      component:A
+    },
+    {
+      path:'/input',
+      name:'Input',
+      component:Input
+    },
+    {
+      path:'/button',
+      name:'Button',
+      component:Button
     }
   ]
 });

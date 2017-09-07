@@ -17,5 +17,5 @@ app.use(views('server/views',  { map: {html: 'ejs'}}));
 routers(app);
 
 app.listen(4000 ,'127.0.0.1', ()=>{
-  console.log(`server start listening...`);
+  console.log(`server start listening port 4000...`);
 });

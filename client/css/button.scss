@@ -1,0 +1,8 @@
+.button{
+  $pd:10px;
+  .ui-btn{
+    background-color: red;
+    padding: $pd;
+    border:none;
+  }
+}

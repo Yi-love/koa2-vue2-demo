@@ -24,7 +24,8 @@ function generateLoaders (loader, loaderOptions , development) {
       })
     });
   }
-  return ExtractTextPlugin.extract({
+  return development ? ['vue-style-loader'].concat(loaders) : 
+  ExtractTextPlugin.extract({
     use: loaders,
     fallback: 'vue-style-loader'
   });
@@ -40,8 +41,7 @@ module.exports = function(development){
       extensions: ['.js', '.vue', '.json'],
       alias: {
         'vue$': 'vue/dist/vue.esm.js'
-      },
-      symlinks: false
+      }
     },
     resolveLoader:{
       modules: ['node_modules']
@@ -78,6 +78,50 @@ module.exports = function(development){
               styl: generateLoaders('stylus',undefined,development)
             }
           }
+        },
+        {
+          test: /\.css$/,
+          use: ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: {
+              loader:'css-loader',
+              options:{
+                  minimize: development ? false : true
+              }
+            }
+          })
+        },
+        {
+          test: /\.less$/,
+          use: ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: [{
+                loader:'css-loader',
+                options:{
+                    minimize: development ? false : true
+                }
+              },
+              {
+                loader:'less-loader'
+              }
+            ]
+          })
+        },
+        {
+          test: /\.scss$/,
+          use: ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: [{
+                loader:'css-loader',
+                options:{
+                    minimize: development ? false : true
+                }
+              },
+              {
+                loader:'sass-loader'
+              }
+            ]
+          })
         }
       ]
     },
@@ -92,6 +136,7 @@ module.exports = function(development){
         name: 'vendor'
       }),
       new HtmlWebpackPlugin({
+        inject: true,
         filename: './../../server/views/index.html',
         template: path.resolve(__dirname , 'server/views/index.template.html')
       }),
