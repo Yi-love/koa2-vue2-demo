@@ -8,6 +8,7 @@
       <li class="menu-i"><a href="#/a">test link</a></li>
       <li class="menu-i"><a href="#/button">test button</a></li>
       <li class="menu-i"><a href="#/input">test input</a></li>
+      <li class="menu-i"><a href="#/user">test ajax</a></li>
     </ul>
   </div>
 </template>

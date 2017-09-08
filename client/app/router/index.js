@@ -6,6 +6,7 @@ import Hello from '../components/Hello';
 import A from '../components/A';
 import Button from '../components/Button';
 import Input from '../components/Input';
+import User from '../components/user';
 
 Vue.use(Router);
 
@@ -30,6 +31,11 @@ export default new Router({
       path:'/button',
       name:'Button',
       component:Button
+    },
+    {
+      path:'/user',
+      name:'User',
+      component:User
     }
   ]
 });
