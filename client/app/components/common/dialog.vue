@@ -1,5 +1,5 @@
 <template>
-  <div class="kv-dialog" v-bind:class="{show:dialog.isShow}">
+  <div class="kv-dialog" :class="{show:dialog.isShow}">
     <div class="kv-dialog-container">
       <div class="kv-dialog-body">
         <div class="kv-dialog-content">{{dialog.message}}</div>
@@ -8,20 +8,21 @@
         </div>
       </div>
     </div>
-    
   </div>
 </template>
 
 <script>
+  import {mapState} from 'vuex';
+  import store from '../../store';
   export default {
     name:'kv-dialog',
-    props:['dialog'],
+    computed:mapState(['dialog']),
     methods:{
       canlF(){
-        this.dialog.isShow = false;
+        store.commit('hideDialog');
       },
       okF(){
-        this.dialog.isShow = false;
+        store.commit('hideDialog');
       }
     }
   };

@@ -35,7 +35,7 @@ module.exports = function(development){
   return {
     entry:{
       main:'./client/app/main.js',
-      vendor:['vue','vue-router']
+      vendor:['vue','vue-router','vuex']
     },
     resolve: {
       extensions: ['.js', '.vue', '.json'],

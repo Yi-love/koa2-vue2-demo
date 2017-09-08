@@ -5,13 +5,13 @@
 </template>
 
 <script>
+  import store from '../store';
   export default {
     name :'ui-button',
-    props:['dialog'],
     methods:{
       showDialog(){
-        this.dialog.message = 'this is a dialog message';
-        this.dialog.isShow = true;
+        store.commit('setDialogMsg' , 'this is msg i send to you.');
+        store.commit('showDialog');
       }
     }
   };

@@ -7,12 +7,12 @@
       <kv-sidebar></kv-sidebar>
     </div>
     <div class="kv-body">
-      <router-view v-bind:dialog="dialog"></router-view>
+      <router-view></router-view>
       <div class="kv-foot">
         <kv-footer></kv-footer>
       </div>
     </div>
-    <kv-dialog v-bind:dialog="dialog"></kv-dialog>
+    <kv-dialog></kv-dialog>
   </div>
 </template>
 
@@ -24,14 +24,6 @@
 
   export default {
     name: 'kv-app',
-    data(){
-      return {
-        dialog:{
-          message:'',
-          isShow:false
-        }
-      };
-    },
     components:{kvHeader,kvSidebar,kvFooter,kvDialog}
   };
 </script>
