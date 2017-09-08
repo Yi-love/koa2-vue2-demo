@@ -1,6 +1,6 @@
 <template>
   <div class="a">
-    <a href="" class="ui-a">test link</a>
+    <a href="#/" class="ui-a">go back /</a>
   </div>
 </template>
 
