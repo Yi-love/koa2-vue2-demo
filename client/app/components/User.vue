@@ -13,7 +13,9 @@
   import store from '../store';
   export default {
     name:'user',
-    computed:mapState(['userList']),
+    computed:mapState({
+      userList: state => state.userList.userList
+    }),
     methods:{
       getUserList(){
         store.dispatch('getUserList');

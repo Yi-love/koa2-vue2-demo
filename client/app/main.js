@@ -1,6 +1,6 @@
 'use strict';
-
 import Vue from 'vue';
+
 import 'normalize.css';
 import '../css/common.css';
 import '../css/input.less';

@@ -38,15 +38,16 @@ module.exports = function(development){
       vendor:['vue','vue-router','vuex','axios']
     },
     resolve: {
-      extensions: ['.js', '.vue', '.json'],
+      extensions: ['.js', '.vue', '.json','.less','.scss'],
       alias: {
         'vue$': 'vue/dist/vue.esm.js'
       }
     },
-    resolveLoader:{
-      modules: ['node_modules']
-    },
+    cache: false,
     watch: development ? true : false,
+    watchOptions: {
+      ignored: /node_modules/
+    },
     module:{
       rules:[
         {
@@ -150,6 +151,7 @@ module.exports = function(development){
           drop_console: true,
         }
       }),
+      new webpack.NoEmitOnErrorsPlugin(),
       new webpack.BannerPlugin(codeComment.alpaca)
     ]
   };

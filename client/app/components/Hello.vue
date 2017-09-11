@@ -22,5 +22,6 @@
 <style>
   .small-title{
     color: blue;
+    font-size: 40px;
   }
 </style>

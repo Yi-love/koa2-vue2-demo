@@ -10,8 +10,7 @@
     name :'ui-button',
     methods:{
       showDialog(){
-        store.commit('setDialogMsg' , 'this is msg i send to you.');
-        store.commit('showDialog');
+        store.commit('showDialog' , 'this is msg i send to you.');
       }
     }
   };
