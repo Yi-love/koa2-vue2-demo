@@ -6,7 +6,8 @@ const webpack = require('webpack');
 const exec = require('child_process').exec;
 const runSequence = require('run-sequence');
 
-let config = require('./webpack.config');
+const webpackDev = require('./client/config/webpack.dev');
+const webpackProd = require('./client/config/webpack.prod');
 
 /**
  * [defaultStatsOptions gulp染色配置]
@@ -88,10 +89,10 @@ gulp.task('del', function () {
     return del(['static/dist' , 'server/views/index.html']);
 });
 gulp.task('webpackDev' , function(){
-    return webpack(config(true) , prewebpack());
+    return webpack(webpackDev , prewebpack());
 });
 gulp.task('webpackProd' , function(callback){
-    return webpack(config() , prewebpack(callback));
+    return webpack(webpackProd , prewebpack(callback));
 });
 gulp.task('dev' ,function(){
     return runSequence('npm-prune' , 'del' , 'webpackDev');
@@ -101,3 +102,4 @@ gulp.task('prod' , function(){
     return runSequence('npm-prune' , 'del' , 'webpackProd');
 });
 gulp.task('pub' , ['prod']);
+

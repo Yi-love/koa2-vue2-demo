@@ -4,7 +4,7 @@
   "description": "build with vue2 demo",
   "main": "server/index.js",
   "scripts": {
-    "dev": "node server/index.js",
+    "dev": "node server/watcher.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,6 +25,7 @@
   "homepage": "https://github.com/Yi-love/koa2-vue2-demo#readme",
   "dependencies": {
     "axios": "^0.16.2",
+    "babel-polyfill": "^6.26.0",
     "ejs": "^2.5.7",
     "koa": "^2.3.0",
     "koa-body": "^2.3.0",
@@ -42,7 +43,7 @@
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.0",
-    "babel-preset-stage-2": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
     "css-loader": "^0.28.7",
     "del": "^3.0.0",
     "eslint": "^4.6.1",
@@ -60,8 +61,8 @@
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "vue-loader": "^13.0.4",
-    "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.4.2",
-    "webpack": "^3.5.5"
+    "webpack": "^3.5.5",
+    "webpack-merge": "^4.1.0"
   }
 }

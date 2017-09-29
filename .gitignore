@@ -2,3 +2,4 @@ node_modules
 npm-debug.log*
 static/dist
 server/views/index.html
+package-lock.json
