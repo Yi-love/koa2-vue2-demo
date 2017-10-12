@@ -12,9 +12,6 @@ module.exports = {
         experimentalObjectRestSpread: true,
     },
   },
-  env: {
-    browser: true,
-  },
   // required to lint *.vue files
   plugins: [
     'html'

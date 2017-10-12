@@ -16,7 +16,16 @@ function generateLoaders(loader , dev) {
       sourceMap: dev ? true : false
     }
   }];
-
+  if ( !dev ){
+    loaders.push({
+      loader: 'postcss-loader',
+      options: {
+        plugins: [
+          require('autoprefixer')('last 2 versions') //css前缀
+        ]
+      }
+    });
+  }
   if ( loader && loader !== 'css' ){
     let loaderOptions = loader === 'sass' ? { indentedSyntax: true } : {};
     loader = loader === 'scss' ? 'sass' : loader;//sass和scss使用相同的loader

@@ -5,6 +5,7 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin'); 
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const webpackBase = require('./webpack.base')();
 let codeComment = require('./code.comment');
@@ -33,6 +34,7 @@ const webpackProd = {
         drop_console: true
       }
     }),
+    new OptimizeCssAssetsPlugin(),//压缩css
     new webpack.BannerPlugin(codeComment.alpaca),
     new webpack.NoEmitOnErrorsPlugin() //webpack编译error
   ]
